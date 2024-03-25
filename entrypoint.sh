@@ -13,11 +13,11 @@ else
 	cat >/etc/logrotate.conf <<EOF
 ${LOGROTATE_FILE_PATTERN}
 {
-  size ${LOGROTATE_FILESIZE}
+  size ${LOGROTATE_FILESIZE:-10M}
   missingok
   notifempty
   copytruncate
-  rotate ${LOGROTATE_FILENUM}
+  rotate ${LOGROTATE_FILENUM:-5}
 }
 EOF
 fi
@@ -31,6 +31,6 @@ else
 	echo "CRON_EXPR environment variable set to $CRON_EXPR"
 fi
 
-echo "$CRON_EXPR	/usr/sbin/logrotate -v /etc/logrotate.conf" >>/etc/crontabs/root
+echo "$CRON_EXPR /usr/sbin/logrotate -v /etc/logrotate.conf" >>/etc/crontabs/root
 
 exec crond -d ${CROND_LOGLEVEL:-7} -f 2>&1 | ts "${TS_FORMAT}"
