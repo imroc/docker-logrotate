@@ -13,6 +13,7 @@ else
 	cat >/etc/logrotate.conf <<EOF
 ${LOGROTATE_FILE_PATTERN}
 {
+  su root root
   size ${LOGROTATE_FILESIZE:-10M}
   missingok
   notifempty
@@ -25,7 +26,7 @@ fi
 echo "$(cat /etc/logrotate.conf)"
 
 if [ -z "$CRON_EXPR" ]; then
-	CRON_EXPR="*/5 *	* * *"
+	CRON_EXPR="*/5 * * * *"
 	echo "CRON_EXPR environment variable is not set. Set to default: $CRON_EXPR"
 else
 	echo "CRON_EXPR environment variable set to $CRON_EXPR"
