@@ -34,4 +34,4 @@ fi
 
 echo "$CRON_EXPR /usr/sbin/logrotate -v /etc/logrotate.conf" >>/etc/crontabs/root
 
-exec crond -d ${CROND_LOGLEVEL:-7} -f 2>&1 | ts "${TS_FORMAT}"
+exec crond -l ${CROND_LOGLEVEL:-8} -f 2>&1 | ts "${TS_FORMAT}"
