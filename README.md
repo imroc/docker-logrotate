@@ -2,7 +2,7 @@
 
 A multi-platform docker container of logrotate, can be used as a sidecar.
 
-Docker image: [imroc/logrotate:latest]((https://hub.docker.com/repository/docker/imroc/logrotate/general).
+Docker image: [imroc/logrotate:latest](https://hub.docker.com/repository/docker/imroc/logrotate/general).
 
 ## Configuration
 
