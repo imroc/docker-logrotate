@@ -14,7 +14,7 @@ else
 ${LOGROTATE_FILE_PATTERN}
 {
   su root root
-  size ${LOGROTATE_FILESIZE:-10M}
+  size ${LOGROTATE_FILESIZE:-50M}
   missingok
   notifempty
   copytruncate
