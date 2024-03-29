@@ -26,6 +26,8 @@ jobs:
         - linux/arm/v6
         - linux/arm/v7
         - linux/386
+        - linux/ppc64le
+        - linux/s390x
     steps:
     - name: Prepare
       run: |
